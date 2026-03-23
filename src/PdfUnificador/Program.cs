@@ -1,34 +1,15 @@
-using System.Runtime.InteropServices;
+using System;
+using System.Windows.Forms;
 
-namespace PdfUnificador;
-
-static class Program
+namespace PdfUnificador
 {
-    [DllImport("dwmapi.dll")]
-    private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
-
-    private const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
-
-    /// <summary>
-    ///  Habilita dark mode para a barra de título do Windows 10/11.
-    /// </summary>
-    public static void EnableDarkTitleBar(IntPtr handle)
+    internal static class Program
     {
-        if (Environment.OSVersion.Version.Major >= 10)
+        [STAThread]
+        static void Main()
         {
-            int value = 1;
-            DwmSetWindowAttribute(handle, DWMWA_USE_IMMERSIVE_DARK_MODE, ref value, sizeof(int));
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainForm());
         }
-    }
-
-    [STAThread]
-    static void Main()
-    {
-        ApplicationConfiguration.Initialize();
-
-        // Forçar renderização de alta qualidade
-        Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
-
-        Application.Run(new MainForm());
     }
 }
