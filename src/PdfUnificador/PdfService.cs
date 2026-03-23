@@ -76,7 +76,7 @@ internal static class PdfService
 
         long sizeKb = new FileInfo(filePath).Length / 1024;
 
-        using var doc = PdfReader.Open(filePath, PdfDocumentOpenMode.InformationOnly);
+        using var doc = PdfReader.Open(filePath, PdfDocumentOpenMode.Import);
         return (doc.PageCount, sizeKb);
     }
 
@@ -103,7 +103,7 @@ internal static class PdfService
 
             try
             {
-                using var doc = PdfReader.Open(path, PdfDocumentOpenMode.InformationOnly);
+                using var doc = PdfReader.Open(path, PdfDocumentOpenMode.Import);
                 _ = doc.PageCount; // força leitura
             }
             catch
