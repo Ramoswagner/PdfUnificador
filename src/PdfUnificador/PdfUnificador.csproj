@@ -1,25 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>PdfUnificador</AssemblyName>
-    <RootNamespace>PdfUnificador</RootNamespace>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Version>1.0.0</Version>
-    <Company>Wagner Ramos</Company>
-    <Product>PDF Unificador</Product>
-    <Description>Ferramenta para unificação de arquivos PDF</Description>
-    <Copyright>© 2026 Wagner Ramos</Copyright>
+
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PdfSharp" Version="6.1.1" />
+    <PackageReference Include="PdfSharp" Version="1.50.5147" />
   </ItemGroup>
+
 </Project>
